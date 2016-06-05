@@ -51,10 +51,15 @@ There are two editions of Dradis Framework:
 ### Git release (recommended)
 
 ```
-$ git clone https://github.com/dradis/dradis-ce.git
-$ cd dradis-ce/
-$ ruby bin/setup
-$ bundle exec rails server
+git clone https://github.com/dradis/dradis-ce.git
+cd dradis-ce/
+ruby bin/setup
+apt-get install mysql-server mysql-client libmysqlclient-dev -y
+gem install mysql2
+gem install ruby-nmap
+bundle install
+bin/rake db:migrate RAILS_ENV=development 
+bundle exec rails server
 ```
 
 You can browse to the app at http://localhost:3000/
